@@ -235,6 +235,83 @@ if udt_input.lower() == "y":
 else:
     input("Press Enter to continue...")
 
+# Create Universal Line Template
+ult_input = input("Do you want  to configure Universal Line  Template(Y/N):-")
+
+if ult_input.lower() == "y":
+    # Create  UDT
+    ult = input("Press Enter to ULT  Name-")
+    add_ult = {
+        "name": "ULT",
+        "urgentPriority": xsd.SkipValue,
+        "lineDescription": "#FN# #LN# ",
+        "routePartition": xsd.SkipValue,
+        "voiceMailProfile": "Default",
+        "callingSearchSpace": "CSS_Internal",
+        "alertingName": "#FirstName# #LastName#",
+        "extCallControlProfile": xsd.SkipValue,
+        "blfPresenceGroup": "Standard Presence group",
+        "callPickupGroup": xsd.SkipValue,
+        "partyEntranceTone": xsd.SkipValue,
+        "autoAnswer": xsd.SkipValue,
+        "rejectAnonymousCall": xsd.SkipValue,
+        "userHoldMohAudioSource": xsd.SkipValue,
+        "networkHoldMohAudioSource": xsd.SkipValue,
+        "aarDestinationMask": xsd.SkipValue,
+        "aarGroup": xsd.SkipValue,
+        "retainDestInCallFwdHistory": "t",
+        "forwardDestAllCalls": xsd.SkipValue,
+        "primaryCssForwardingAllCalls": xsd.SkipValue,
+        "secondaryCssForwardingAllCalls": xsd.SkipValue,
+        "CssActivationPolicy": xsd.SkipValue,
+        "fwdDestExtCallsWhenNotRetrieved": xsd.SkipValue,
+        "cssFwdExtCallsWhenNotRetrieved": xsd.SkipValue,
+        "fwdDestInternalCallsWhenNotRetrieved": xsd.SkipValue,
+        "cssFwdInternalCallsWhenNotRetrieved": xsd.SkipValue,
+        "parkMonitorReversionTime": xsd.SkipValue,
+        "target": xsd.SkipValue,
+        "mlppCss": xsd.SkipValue,
+        "mlppNoAnsRingDuration": xsd.SkipValue,
+        "confidentialAccess": xsd.SkipValue,
+        "confidentialAccessMode": xsd.SkipValue,
+        "holdReversionRingDuration": xsd.SkipValue,
+        "holdReversionNotificationInterval": xsd.SkipValue,
+        "busyIntCallsDestination": xsd.SkipValue,
+        "busyIntCallsCss": xsd.SkipValue,
+        "busyExtCallsDestination": xsd.SkipValue,
+        "busyExtCallsCss": xsd.SkipValue,
+        "noAnsIntCallsDestination": xsd.SkipValue,
+        "noAnsIntCallsCss": xsd.SkipValue,
+        "noAnsExtCallsDestination" "noAnsExtCallsCss": xsd.SkipValue,
+        "noCoverageIntCallsDestination": xsd.SkipValue,
+        "noCoverageIntCallsCss": xsd.SkipValue,
+        "noCoverageExtCallsDestination": xsd.SkipValue,
+        "noCoverageExtCallsCss": xsd.SkipValue,
+        "unregisteredIntCallsDestination": xsd.SkipValue,
+        "unregisteredIntCallsCss": xsd.SkipValue,
+        "unregisteredExtCallsDestination": xsd.SkipValue,
+        "unregisteredExtCallsCss": xsd.SkipValue,
+        "ctiFailureDestination": xsd.SkipValue,
+        "ctiFailureCss": xsd.SkipValue,
+        "callControlAgentProfile": xsd.SkipValue,
+        "noAnswerRingDuration": "60",
+        "enterpriseAltNum": xsd.SkipValue,
+    }
+
+    try:
+        respconf = service.addUniversalLineTemplate(add_ult)
+    except Fault as err:
+        print(f"Zeep error: addUniversalDeviceTemplate: { err }")
+        sys.exit(1)
+
+    print("\aaddUniversalDeviceTemplate response:\n")
+    print(respconf, "\n")
+
+    input("Press Enter to continue...")
+else:
+    input("Press Enter to continue...")
+
+
 # Create a  Region
 
 
